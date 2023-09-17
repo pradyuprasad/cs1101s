@@ -1,10 +1,16 @@
+// Question 1
+function map(f, sequence) {
+    return accumulate((x, y) => pair(f(x), y),
+                      null, 
+                      sequence);
+}
 
 
+map(x => 2*x, list(1, 2, 3));
 
 
 
 // Question 2
-function question2() {
 function checkif(item, l) {
     return !is_null(filter(x => x === item , l));
 }
@@ -54,6 +60,7 @@ function remove_duplicates(l) {
 remove_duplicates(l);
 
 
-}
 
-question2();
+
+
+
