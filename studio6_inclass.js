@@ -4,7 +4,7 @@ function remove_duplicates(lst) {
     
     return accumulate((x, y) => !member(x, lst) ? pair(x, tail(xs))
     , null 
-    ,lst)
+    ,lst);
 }
 
 
