@@ -34,7 +34,7 @@ function permute(input) {
     
 }
 
-list(head(tail(l)), head(l));
+permute(l);
 // permute(list(1,2,3))
 // pair(1, permute(list(2,3)))
 // pair(1, pair(2, permute(list(3))));
