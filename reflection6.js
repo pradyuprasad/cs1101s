@@ -48,3 +48,59 @@ const even_first_and_sorted_cmp = (x, y) => {
 
 insertion_sort_cmp(xs, even_first_and_sorted_cmp);
 // Result: list(2, 4, 6, 6, 8, 9, 7, 5, 3, 1)
+
+/*
+
+Consider the partial implementation of merge_sort shown in class:
+// half, rounded downwards
+function middle(n) {
+return math_floor(n / 2);
+}
+// put the first n elements of xs into a list
+function take(xs, n) {
+// ...
+}
+// drop the first n elements from the list and return the rest
+function drop(xs, n) {
+// ...
+}
+// merge two sorted lists into one sorted list
+function merge(xs, ys) {
+if (is_null(xs)) {
+return ys;
+} else if (is_null(ys)) {
+return xs;
+} else {
+const x = head(xs);
+const y = head(ys);
+return x < y
+? pair(x, merge(tail(xs), ys))
+: pair(y, merge(xs, tail(ys)));
+}
+}
+function merge_sort(xs) {
+if (is_null(xs) || is_null(tail(xs))) {
+return xs;
+} else {
+const mid = middle(length(xs));
+return merge(merge_sort(take(xs, mid)),
+merge_sort(drop(xs, mid)));
+}
+}
+CS1101S, Semester I, 2023/2024 — R6 3 / 3
+(a) Use big-O, Θ or Ω notation to characterize the running time of function merge, for the
+input lists xs and ys of the same length n.
+(b) Given the running time of the functions middle, take and drop have the following
+orders of growth:
+• middle — Θ(1)
+• take — Θ(n), where n is the value of the argument n
+• drop — Θ(n), where n is the value of the argument n
+Characterize the running time of merge_sort, using the big-O, Θ or Ω notation.
+
+
+*/
+
+
+/*
+complexity of merge is 
+*/
