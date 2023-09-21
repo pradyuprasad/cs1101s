@@ -30,5 +30,21 @@ insertion_sort_cmp(xs, (x, y) =>  false);
 // Result: list(7, 2, 4, 6, 9, 1, 5, 8, 3, 6)
 
 // (d)
-insertion_sort_cmp(xs, (x, y) => x % 2 === 0 && y % 2 !== 0);
+
+const even_first_and_sorted_cmp = (x, y) => {
+  if (x % 2 === 0 && y % 2 !== 0) {
+    return true;
+  }
+  else if (x % 2 !== 0 && y % 2 === 0) {
+    return false;
+  }
+  else if (x % 2 === 0 && y % 2 === 0) {
+    return x < y;
+  }
+  else {
+    return y < x;
+  }
+};
+
+insertion_sort_cmp(xs, even_first_and_sorted_cmp);
 // Result: list(2, 4, 6, 6, 8, 9, 7, 5, 3, 1)
