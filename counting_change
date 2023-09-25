@@ -1,0 +1,63 @@
+function make_amount(a) {
+    return cc(a, 5);
+}
+
+function cc(amount, coins){ // coins = number of coins
+
+    /* 
+    logic of this program is you split the program into 2 parts
+    one is try and make it with the largest coin.and the 2nd part is 
+    to try to make it WITHOUT the largest coin. these are mutually 
+    exclusive (largest coin is only in the first but not the second)
+    and collectiveky exhaustive ( there are by definition only 2 ways - one with
+    and the other without)
+    
+    in part 1 you try and make it with the largest coin.
+    
+    how do you make it with the largest one? you subtract the amount from the
+    largest coin to see what's left. (call this a - d). and then make (a - d) 
+    with the same number of coins.
+    
+    basically you get cc(a-d, coins)
+    
+    then part 2: make the total number of coins WITHOUT the largest coin
+    just return cc(a, coins - 1)
+    */
+    if (amount === 0) {
+        return 1;
+    }
+    
+    else if (amount < 0 || coins <= 0) {
+        return 0;
+    }
+    
+    else {
+        return cc(amount - top(coins), coins) + cc(amount, coins-1);
+    }
+}
+
+function top(coins) {
+    if (coins <= 1) {
+        return coins;
+    }
+    
+    else if (coins === 2) {
+        return 5;
+    }
+    
+    else if (coins === 3) {
+        return 10;
+    }
+    
+    else if (coins === 4) {
+        return 25;
+    }
+    
+    else {
+        return 50;
+    }
+    
+    
+}
+
+make_amount(1000);
