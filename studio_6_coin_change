@@ -1,18 +1,33 @@
-function makeup_amount(x, coins) {
-if (x === 0) {
-return list(null);
-} else if (x < 0 || is_null(coins)) {
-return null;
-} else {
-// Combinations that do not use the head coin.
-const combi_A = makeup_amount(x, tail(coins));
-// Combinations that do not use the head coin
-// for the remaining amount.
-const combi_B = makeup_amount(x - head(coins), tail(coins));
-// Combinations that use the head coin.
-const combi_C = map(c => pair(head(coins), c), combi_B);
-return append(combi_A, combi_C);
-}
+function map(f, xs){
+    return is_null(xs)
+    ? null
+    : pair( f(head(xs)), map(f,tail(xs)));
 }
 
-makeup_amount(9, list(1, 10, 5, 20, 1, 5, 1, 50));
+function makeup_amount(x, coins) {
+    if (x === 0) {
+        return list(null);
+    } else if (x < 0 || is_null(coins)) {
+        return null;
+    } else {
+        // Combinations that do not use the head coin.
+        const combi_A = makeup_amount(x, tail(coins));
+
+        // Combinations that do not use the head coin 
+        // for the remaining amount.
+        const combi_B = makeup_amount(x - head(coins), tail(coins));
+
+        // ADD HEAD COIN BACK BECAUSE WE SUBTRACTED IT IN COMBI_B.
+        const combi_C = map(x => pair(head(coins), x), combi_B);
+        
+        // adding head(coin) to each element of combi_B since removing from
+        // combi_B so adding head in each to combi_C
+
+        return append(combi_A, combi_C);
+        
+        // B is a transition step
+    }
+}
+
+
+makeup_amount(22, list(1, 10, 5, 20, 1, 5, 1, 50));
