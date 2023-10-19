@@ -119,8 +119,34 @@ function fibs_optimized(n){
     return b;
 }
 
-fibs_optimized(10);
+//fibs_optimized(10);
 
+// Question 3
 
+const mem = [];
+function read(n, k) {
+return mem[n] === undefined
+? undefined
+: mem[n][k];
+}
+function write(n, k, value) {
+if (mem[n] === undefined) {
+mem[n] = [];
+}
+mem[n][k] = value;
+}
 
+function mchoose(n, k) {
+if (read(n, k) !== undefined) {
+return read(n, k);
+} else {
+const result = k > n
+? 0
+: k === 0 || k === n
+? 1
+: mchoose(n - 1, k) + mchoose(n - 1, k - 1);
+write(n, k, result);
+return result;
+}
+}
 
