@@ -58,7 +58,7 @@ function mcc(n, k) {
        
        write(n,k,result);
        return result;
-       
+        †
    }
 
         
