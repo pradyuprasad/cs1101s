@@ -45,5 +45,5 @@ function bubblesort_list(L) {
 }
 
 
-bubblesort_list(L);
-L;
+bubblesort_list(LL);
+LL;
