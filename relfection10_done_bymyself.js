@@ -24,7 +24,7 @@ function zip_streams(L) {
 }
 
 const k = zip_streams(L);
-//eval_stream(k, 9);
+eval_stream(k, 9);
 
 function add_streams(s1, s2) {
     return is_null(s1)
@@ -41,5 +41,5 @@ function partial_sums(s) {
     return pair(head(s), () => add_streams(partial_sums(s), (stream_tail(s))));
 }
 
-const l = partial_sums(s1);
-eval_stream(l, 10);
+//const l = partial_sums(s1);
+//eval_stream(l, 10);
