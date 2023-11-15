@@ -727,5 +727,5 @@ function factorial(n) {
 factorial(5) + n;`);
 */
 
-parse_and_evaluate('1.1;');
+parse_and_evaluate('1;2;3;');
 
