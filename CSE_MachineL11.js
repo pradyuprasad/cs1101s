@@ -727,5 +727,5 @@ function factorial(n) {
 factorial(5) + n;`);
 */
 
-parse_and_evaluate('1;2;3;');
+parse_and_evaluate("function f(x) { return x === 0 ? 1 : x* f(x-1); }");
 
